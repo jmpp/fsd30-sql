@@ -104,7 +104,7 @@ En plus du "jeu de caractères" MySQL permet de choisir comment seront classées
 
 Comment ordonner A,a, B,b , ordre des accents, ...
 
-Supposons que nous ayons un jeu de caractères de 4 lettres : A,B,a,b avec l'ordre suivant A=0, B=1, a=2, c=3, si maintenant on veut comparer les lettres A et B il suffit de comparer le nombre 0 et 1 et donc A < B. Ce que nous faisons ici correspond à une collation binaire. Cependant, le problème devient un peu plus complexe si on doit comparer A et a, il faut si la collation est sensible à la casse définir d'autres règles (regrouper a,b et A et B). Dans la réalité, une collation possède de nombreuses règles pour comparer les lettres.
+Supposons que nous ayons un jeu de caractères de 4 lettres : A,B,a,b avec l'ordre suivant A=0, B=1, a=2, b=3, si maintenant on veut comparer les lettres A et B il suffit de comparer le nombre 0 et 1 et donc A < B. Ce que nous faisons ici correspond à une collation binaire. Cependant, le problème devient un peu plus complexe si on doit comparer A et a, il faut si la collation est sensible à la casse définir d'autres règles (regrouper a,b et A et B). Dans la réalité, une collation possède de nombreuses règles pour comparer les lettres.
 
 Dans notre cas on utilisera la collation **utf8_general_ci** ou **utf8mb4_unicode_ci**, elle est insensible à la casse, ce qui permet de faire des recherches dans les tables plus rapidement.
 

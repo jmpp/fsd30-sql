@@ -187,7 +187,7 @@ Créez la table pilots suivante dans la base donnes db_aviation.
 | Field       | Type         | Null | Key | Default | Extra |
 +-------------+--------------+------+-----+---------+-------+
 | certificate | varchar(6)   | NO   | PRI | NULL    |       |
-| num_flying   | decimal(7,1) | YES  |     | NULL    |       |
+| num_flying  | decimal(7,1) | YES  |     | NULL    |       |
 | company     | char(4)      | YES  | MUL | NULL    |       |
 | name        | varchar(20)  | NO   | UNI | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
