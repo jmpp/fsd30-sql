@@ -106,7 +106,23 @@ Le CUBE permettra de faire les regroupements suivants : col1, col2 et col1, col3
 
 ## 02 Exercices sales et découverte des procédures
 
-1. Créez la table sales, elle représente la table des dépenses. Mettez à jour cette table avec les données suivantes :
+1. Créez la table sales, elle représente la table des dépenses.
+
+```sql
+DROP TABLE IF EXISTS sales;
+CREATE TABLE `sales` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `created_at` DATE DEFAULT '1980-01-01',
+    `company` CHAR(4),
+    `profit` DECIMAL(15,2),
+    CONSTRAINT pk_id PRIMARY KEY (`id`)
+) ENGINE=InnoDB ;
+
+ALTER TABLE sales ADD CONSTRAINT fk_sales_company FOREIGN KEY (company) REFERENCES companies(`comp`);
+
+```
+
+Mettez à jour cette table avec les données suivantes :
 
 **Création de la table sales référencée à la table companies, avec les champs suivants**
 
@@ -168,20 +184,6 @@ call set_data('CHI');
 call set_data('SIN');
 call set_data('FRE1');
 call set_data('ITA');
-```
-
-```sql
-DROP TABLE IF EXISTS sales;
-CREATE TABLE `sales` (
-    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at` DATE DEFAULT '1980-01-01',
-    `company` CHAR(4),
-    `profit` DECIMAL(15,2),
-    CONSTRAINT pk_id PRIMARY KEY (`id`)
-) ENGINE=InnoDB ;
-
-ALTER TABLE sales ADD CONSTRAINT fk_sales_company FOREIGN KEY (company) REFERENCES companies(`comp`);
-
 ```
 
 3.  Ré-écrire la procédure en créant une table temporaire et en utilisant INSERT et SELECT pour automatiser l'hydration de la table sales. Voici comment vous allez créer une table temporaire dans votre procédure :
