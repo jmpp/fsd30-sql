@@ -108,6 +108,15 @@ Le CUBE permettra de faire les regroupements suivants : col1, col2 et col1, col3
 
 1. Créez la table sales, elle représente la table des dépenses.
 
+Mettez à jour cette table avec les données suivantes :
+
+**Création de la table sales référencée à la table companies, avec les champs suivants**
+
+- *id* : bigint unsigned auto increment
+- *created_at* : datetime
+- *company* : clé étrangère référencée à la table companies
+- *profit* : champ décimal de 10 chiffres avec 2 chiffres après la virgule.
+
 ```sql
 DROP TABLE IF EXISTS sales;
 CREATE TABLE `sales` (
@@ -119,17 +128,7 @@ CREATE TABLE `sales` (
 ) ENGINE=InnoDB ;
 
 ALTER TABLE sales ADD CONSTRAINT fk_sales_company FOREIGN KEY (company) REFERENCES companies(`comp`);
-
 ```
-
-Mettez à jour cette table avec les données suivantes :
-
-**Création de la table sales référencée à la table companies, avec les champs suivants**
-
-id : bigint unsigned auto increment
-year_month : datetime
-company : clé étrangère référencée à la table companies
-profit : champ décimal de 10 chiffres avec 2 chiffres après la virgule.
 
 2. Procédure découverte 
 
