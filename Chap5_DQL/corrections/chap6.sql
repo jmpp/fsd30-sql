@@ -86,3 +86,28 @@ SELECT c.name, SUM(num_flying)
 FROM pilots p
     INNER JOIN companies c ON p.company = c.comp
 GROUP BY c.name;
+
+-- =========================================
+-- 05 Exercice pilotes et compagnies & insertion d'information dans la table pilots
+-- =========================================
+
+-- A. En utilisant un LEFT JOIN, sélectionnez le nom de la compagnie, le certificat du pilote et le nom du pilote même si la compagnie n'emploie pas de pilote.
+SELECT
+    c.name,
+    p.certificate,
+    p.name
+FROM companies c
+    LEFT JOIN pilots p ON c.comp = p.company;
+
+-- B. Insérez maintenant le pilote suivant (il ne sera pas rattaché à une compagnie) :
+INSERT INTO
+    pilots (name, certificate, num_flying, birth_date, num_jobs, bonus)
+VALUES ( 'Harry', 'ct-19', 0, '2000-01-01 12:00:00', 0, 100 );
+
+-- C. En utilisant cette fois un RIGHT JOIN, sélectionnez le nom de la compagnie, le certificat du pilote et le nom du pilote, même si la companie n'est pas rattachée à un pilote
+SELECT
+    c.name,
+    p.certificate,
+    p.name
+FROM companies c
+    RIGHT JOIN pilots p ON c.comp = p.company;
