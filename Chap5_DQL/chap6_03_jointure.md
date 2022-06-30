@@ -34,16 +34,25 @@ Rappelons qu'une jointure externe permet d'extraire des enregistrements qui ne r
 
 ## 05 Exercice pilotes et compagnies & insertion d'information dans la table pilots
 
-- Sélectionnez le nom de la compagnie, le certificat du pilote et le nom du pilote même si la compagnie n'emploie pas de pilote.
+A. En utilisant un `LEFT JOIN`, sélectionnez le nom de la compagnie, le certificat du pilote et le nom du pilote même si la compagnie n'emploie pas de pilote.
 
-Insérez maintenant le pilote suivant, il ne sera pas rattaché à une compagnie.
+B. Insérez maintenant le pilote suivant (il ne sera pas rattaché à une compagnie) :
 
-- Nom : Harry, certificat ct-19. Il n'a aucun leader pilote, a fait 0 heure de vol, n'est rattaché à aucune compagnie, a un bonus de 100, a fait 0 jour de travail, n'a aucun vol planifié et a pour date de naissance : '2000-01-01 12:00:00'.
+- Nom : **Harry**
+- Certificat : **ct-19**
+- Aucun leader pilote
+- A fait **0 heure** de vol
+- N'est rattaché à aucune compagnie (**NULL**)
+- A un bonus de **100**
+- A fait **0** jour de travail
+- N'a aucun vol planifié
+- A pour date de naissance : **2000-01-01 12:00:00**.
 
-- Sélectionnez le nom de la compagnie, le certificat du pilote et le nom du pilote, même si le pilote n'est pas rattaché à une compagnie.
+C. En utilisant cette fois un `RIGHT JOIN`, sélectionnez le nom de la compagnie, le certificat du pilote et le nom du pilote, même si la companie n'est pas rattachée à un pilote
 
-Nous allons maintenant présenter une dernière jointure : la jointure bilatérale. Dans ce cas aucune des deux tables ne joue le rôle de table dominante.
+---
 
+Nous allons maintenant présenter une dernière jointure : la jointure bilatérale. Dans ce cas aucune des deux tables ne joue le rôle de table dominante. 
 ## 06 Exercice bilatéral FULL OUTER JOIN
 
 Sélectionnez les compagnies et leurs pilotes incluant les compagnies n'ayant pas de pilote et les pilotes n'ayant pas de compagnie.

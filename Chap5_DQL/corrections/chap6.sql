@@ -65,3 +65,24 @@ FROM pilots
 WHERE
     company In('FRE1')
     and pilots.num_flying > 60;
+
+-- =========================================
+-- 03 Exercice sommes des heures de vol
+-- =========================================
+
+-- Faites la somme des heures de vol de tous les pilotes de la compagnie AUSTRA Air (recherche par rapport au nom de la compagnie dans la table companies).
+
+SELECT SUM(num_flying), c.name FROM pilots p
+INNER JOIN companies c ON p.company = c.comp
+WHERE c.name = 'AUSTRA Air';
+
+-- =========================================
+-- 04 Exercice sommes des heures par compagnie
+-- =========================================
+
+-- Faites maintenant la somme des nombres des heures de vol par compagnie en donnant le nom des compagnies.
+
+SELECT c.name, SUM(num_flying)
+FROM pilots p
+    INNER JOIN companies c ON p.company = c.comp
+GROUP BY c.name;
